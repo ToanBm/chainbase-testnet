@@ -8,7 +8,7 @@
 ## Auto Setup
 ### 1. Clone the repository
 ```Bash
-git clone https://github.com/ToanBm/chainbase-testnet.git
+git clone https://github.com/ToanBm/chainbase-testnet.git && cd chainbase-testnet
 ```
 ### 2. Run the setup script
 ```bash
