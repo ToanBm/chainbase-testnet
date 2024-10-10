@@ -14,10 +14,7 @@ git clone https://github.com/ToanBm/chainbase-testnet.git
 ```bash
 chmod +x contract.sh && ./contract.sh
 ```
-- Please choose and enter 4 times
-![hardhat2](https://github.com/ToanBm/abstract-contract/blob/main/hardhat.jpg)
-- Enter your EVM wallet private key
-- Enter your HelloAbstract to verify
+- Check your contract on Explorer! [Here](https://testnet.explorer.chainbase.com)
 
 ## Done!
 
