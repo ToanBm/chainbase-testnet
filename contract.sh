@@ -92,9 +92,25 @@ npx hardhat compile
 
 # "Waiting before deploying..."
 sleep 3
+# Yêu cầu nhập số lượng contract cần deploy
+read -p "Enter the number of contracts to deploy: " NUMBER_OF_CONTRACTS
 
-# Step 8: Deploy the contract to the Chainbase network
-echo "Deploy your contracts..."
-npx hardhat run scripts/deploy.js --network chainbase
+# Kiểm tra số lượng có phải là số hợp lệ không
+if ! [[ "$NUMBER_OF_CONTRACTS" =~ ^[0-9]+$ ]]; then
+  echo "Invalid input. Please enter a valid number."
+  exit 1
+fi
 
+# Lặp lệnh deploy
+for ((i=1; i<=NUMBER_OF_CONTRACTS; i++)); do
+  print_command "Deploying contract #$i..."
+  npx hardhat run scripts/deploy.js --network chainbase
+
+  # Thời gian chờ ngẫu nhiên từ 3 đến 7 giây
+  RANDOM_DELAY=$(shuf -i 3-7 -n 1)  # Chọn số ngẫu nhiên từ 3 đến 7
+  echo "Waiting for $RANDOM_DELAY seconds before next deploy..."
+  sleep $RANDOM_DELAY
+done
+
+print_command "Successfully deployed $NUMBER_OF_CONTRACTS smart contracts!"
 echo "Thank you!"
