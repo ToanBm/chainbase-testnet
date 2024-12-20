@@ -103,7 +103,7 @@ fi
 
 # Lặp lệnh deploy
 for ((i=1; i<=NUMBER_OF_CONTRACTS; i++)); do
-  print_command "Deploying contract #$i..."
+  echo "Deploying contract #$i..."
   npx hardhat run scripts/deploy.js --network chainbase
 
   # Thời gian chờ ngẫu nhiên từ 3 đến 7 giây
@@ -112,5 +112,5 @@ for ((i=1; i<=NUMBER_OF_CONTRACTS; i++)); do
   sleep $RANDOM_DELAY
 done
 
-print_command "Successfully deployed $NUMBER_OF_CONTRACTS smart contracts!"
+echo "Successfully deployed $NUMBER_OF_CONTRACTS smart contracts!"
 echo "Thank you!"
